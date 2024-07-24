@@ -2,7 +2,20 @@ const puppeteer = require('puppeteer');
 
 async function scrapeMedium(topic) {
     const browser = await puppeteer.launch({
-        headless: true
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--disable-gpu',
+            '--no-zygote',
+            '--single-process',
+            '--no-first-run',
+            '--disable-dev-shm-usage',
+            '--disable-infobars',
+            '--disable-features=site-per-process'
+        ]
     });
 
     const page = await browser.newPage();
