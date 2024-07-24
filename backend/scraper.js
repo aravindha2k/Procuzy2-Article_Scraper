@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 async function scrapeMedium(topic) {
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         args: [
             '--no-sandbox',
             '--disable-setuid-sandbox',
